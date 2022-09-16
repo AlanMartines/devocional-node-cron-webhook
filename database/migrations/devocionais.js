@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
+      filePath: {
+        allowNull: false,
+        type: DataTypes.CHAR(255),
+      },
       fileName: {
         allowNull: false,
         type: DataTypes.CHAR(255),
@@ -25,10 +29,6 @@ module.exports = {
         type: DataTypes.CHAR(255),
       },
       extType: {
-        allowNull: false,
-        type: DataTypes.CHAR(255),
-      },
-      filePath: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
