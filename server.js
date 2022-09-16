@@ -14,17 +14,7 @@ app = express();
 cron.schedule("* * * * *", async () => { 
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
-				const row = await devocionais.findAll({
-					attributes: [
-						'descricao', 
-						'filePath',
-						'fileName',
-						'fileSize',
-						'fileType',
-						'extType',
-						'data'
-					]
-				}).then(async function (entries) {
+				const row = await devocionais.findAll().then(async function (entries) {
 					return entries;
 				}).catch(async (err) => {
 					logger.error('Error:', err);
