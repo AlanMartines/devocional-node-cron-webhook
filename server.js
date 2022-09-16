@@ -15,7 +15,7 @@ cron.schedule("* * * * *", async () => {
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
 				const date_now = moment(new Date())?.format('YYYY-MM-DD');
-				const row = await devocionais.findAll({
+				const row = await devocionais.findOne({
 					attributes: ['descricao', 'filePath',	'fileName',	'fileSize',	'fileType',	'extType', 'data'],
 					where: {
 						data: date_now
