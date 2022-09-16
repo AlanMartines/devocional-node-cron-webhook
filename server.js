@@ -13,6 +13,31 @@ app = express();
 // CRON JOB EXECUTANDO DE UM EM UM MINUTO
 cron.schedule("* * * * *", async () => { 
 	logger.info("Executando a tarefa a cada 1 minuto");
+				//
+				const row = await devocionais.findAll({
+					attributes: [
+						'descricao', 
+						'filePath',
+						'fileName',
+						'fileSize',
+						'fileType',
+						'extType',
+						'data'
+					]
+				}).then(async function (entries) {
+					return entries;
+				}).catch(async (err) => {
+					logger.error('Error:', err);
+					return false;
+				});
+				//
+				if (row) {
+					//
+					logger.info(JSON.stringify(row, null, 2));
+					//
+				} else {
+
+				}
 });
 //
 cron.schedule("0 */1 * * *", async () => {
