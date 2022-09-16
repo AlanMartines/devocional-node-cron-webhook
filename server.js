@@ -5,6 +5,7 @@ moment()?.format('YYYY-MM-DD HH:mm:ss');
 moment?.locale('pt-br');
 const { logger } = require("./utils/logger");
 const config = require('./config.global');
+const { devocionais } = require('./models');
 require('dotenv').config();
 //
 app = express();
