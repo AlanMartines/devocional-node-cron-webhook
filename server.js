@@ -15,7 +15,7 @@ cron.schedule("* * * * *", async () => {
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
 				const date_now = moment(new Date())?.format('YYYY-MM-DD');
-				const row = await devocionais.findOne({
+				const row = await devocionais.findAll({
 					where: {
 						data: date_now
 					}
