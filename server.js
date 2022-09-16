@@ -15,7 +15,7 @@ cron.schedule("* * * * *", async () => {
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
 				const date_now = moment(new Date())?.format('YYYY-MM-DD');
-				const row = await Tokens.findOne({
+				const row = await Tokens.findAll({
 					attributes: ['descricao', 'filePath',	'fileName',	'fileSize',	'fileType',	'extType', 'data'],
 					where: {
 						data: '2022-09-16'
