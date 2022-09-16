@@ -16,7 +16,6 @@ cron.schedule("* * * * *", async () => {
 				//
 				const date_now = moment(new Date())?.format('YYYY-MM-DD');
 				const row = await devocionais.findOne({
-					attributes: ['descricao', 'filePath',	'fileName',	'fileSize',	'fileType',	'extType', 'data'],
 					where: {
 						data: date_now
 					}

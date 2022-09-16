@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
 	const devocionais = sequelize.define('devocionais', {
-		ID: DataTypes.INTEGER.UNSIGNED,
 		descricao: DataTypes.CHAR(255),
 		filePath: DataTypes.CHAR(255),
 		fileName: DataTypes.CHAR(255),
