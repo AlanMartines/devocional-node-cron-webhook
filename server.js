@@ -14,16 +14,22 @@ app = express();
 cron.schedule("* * * * *", async () => { 
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
-				const row = await devocionais.findAll().then(async function (entries) {
+				const date_now = moment(new Date())?.format('YYYY-MM-DD');
+				const row = await Tokens.findOne({
+					attributes: ['descricao', 'filePath',	'fileName',	'fileSize',	'fileType',	'extType', 'data'],
+					where: {
+						data: date_now
+					}
+				}).then(async function (entries) {
 					return entries;
 				}).catch(async (err) => {
-					logger.error('Error:', err);
+					logger.error(err);
 					return false;
 				});
 				//
 				if (row) {
 					//
-					logger.info(JSON.stringify(row, null, 2));
+					console.log(JSON.stringify(row, null, 2));
 					//
 				} else {
 
