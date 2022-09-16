@@ -15,10 +15,10 @@ cron.schedule("* * * * *", async () => {
 	logger.info("Executando a tarefa a cada 1 minuto");
 				//
 				const date_now = moment(new Date())?.format('YYYY-MM-DD');
-				const row = await Tokens.findOne({
+				const row = await devocionais.findOne({
 					attributes: ['descricao', 'filePath',	'fileName',	'fileSize',	'fileType',	'extType', 'data'],
 					where: {
-						data: '2022-09-16'
+						data: date_now
 					}
 				}).then(async function (entries) {
 					return entries;
