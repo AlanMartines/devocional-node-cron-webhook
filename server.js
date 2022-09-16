@@ -29,10 +29,12 @@ cron.schedule("* * * * *", async () => {
 				//
 				if (row) {
 					//
-					console.log(JSON.stringify(row, null, 2));
+					logger.info(JSON.stringify(row, null, 2));
 					//
 				} else {
-
+					//
+					logger.error('Erro select');
+					//
 				}
 });
 //
