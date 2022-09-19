@@ -1,14 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
 	const devocionais = sequelize.define('devocionais', {
 		descricao: DataTypes.CHAR(255),
-		filePath: DataTypes.CHAR(255),
-		fileName: DataTypes.CHAR(255),
-		fileSize: DataTypes.CHAR(255),
-		fileType: DataTypes.CHAR(255),
-		extType: DataTypes.CHAR(255),
-		data: DataTypes.DATE,
+		filepath: DataTypes.CHAR(255),
+		filename: DataTypes.CHAR(255),
+		filesize: DataTypes.CHAR(255),
+		filetype: DataTypes.CHAR(255),
+		exttype: DataTypes.CHAR(255),
+		data: DataTypes.CHAR(50),
 		created: 'TIMESTAMP',
 		modified: 'TIMESTAMP',
-	});
+	}, 
+	{
+		freezeTableName: true,
+		tableName: 'devocionais'
+	}
+	);
 	return devocionais;
 }
+//

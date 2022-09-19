@@ -12,23 +12,23 @@ module.exports = {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
-      filePath: {
+      filepath: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
-      fileName: {
+      filename: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
-      fileSize: {
+      filesize: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
-      fileType: {
+      filetype: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },
-      extType: {
+      exttype: {
         allowNull: false,
         type: DataTypes.CHAR(255),
       },

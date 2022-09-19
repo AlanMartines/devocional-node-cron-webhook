@@ -11,4 +11,6 @@ config.MYSQL_USER = process.env.MYSQL_USER || 'root';
 config.MYSQL_PASSWORD = process.env.MYSQL_PASSWORD || '';
 config.MYSQL_DATABASE = process.env.MYSQL_DATABASE || '';
 config.MYSQL_TIMEZONE = process.env.MYSQL_TIMEZONE || '-04:00';
+config.URL_API_WHATSAPP = process.env.URL_API_WHATSAPP || '';
+config.TOKEN_API_WHATSAPP = process.env.TOKEN_API_WHATSAPP || '';
 //
