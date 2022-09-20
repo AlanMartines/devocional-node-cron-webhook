@@ -6,10 +6,10 @@ const axios = require('axios');
 const moment = require('moment');
 const { default: pQueue } = require('p-queue');
 const { logger } = require("./utils/logger");
-const config = require('./config.global');
 const { devocionais, listatransmissao } = require('./models');
 moment()?.format('YYYY-MM-DD HH:mm:ss');
 moment?.locale('pt-br');
+const config = require('./config.global');
 require('dotenv').config();
 //
 const app = express();

@@ -4,11 +4,7 @@ const router = express.Router();
 //
 // ------------------------------------------------------------------------------------------------//
 //
-router.get('/clients',clients.findAll);
-router.get('/clients/:id',clients.findClient);
-router.put('/clients/:id',clients.updateClient);
-router.delete('/clients/:id',clients.deleteClient);
-router.post('/clients', clients.addClient);
+router.post('/lista', clients.addClient);
 //
 // ------------------------------------------------------------------------------------------------//
 //
