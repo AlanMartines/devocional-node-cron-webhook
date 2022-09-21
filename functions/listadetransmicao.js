@@ -6,7 +6,7 @@ moment?.locale('pt-br');
 const { logger } = require("../utils/logger");
 const { devocionais, listatransmissao } = require('../models');
 //
-exports.sendLista = async (req, res, next) => {
+exports.sendLista = async () => {
 	//
 		logger.info("Executando envio da lista do devocional");
 		//
