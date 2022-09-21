@@ -33,6 +33,9 @@ export default class Lista {
 				//logger.info(findOne?.dataValues);
 				await listatransmissao.findAll({
 					attributes: ['numero', 'ativo'],
+					where: {
+						numero: '556796787854'
+					},
 				}).then(async (rows) => {
 					//
 					if (rows) {

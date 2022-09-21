@@ -12,6 +12,8 @@ moment?.locale('pt-br');
 const config = require('./config.global');
 require('dotenv').config();
 //
+const webhook = require("./routes/webhook");
+//
 const app = express();
 //
 const queue = new pQueue({ concurrency: 1 });
@@ -148,6 +150,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", async (req, res, next) => {
 	res.json({ message: "Welcome to application." });
 });
+//
+app.use(webhook);
 //
 app.listen(config.PORT, async () => {
 	logger.info(`Server cron started on port: ${config.PORT}`);
