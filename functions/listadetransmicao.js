@@ -6,9 +6,8 @@ moment?.locale('pt-br');
 const { logger } = require("../utils/logger");
 const { devocionais, listatransmissao } = require('../models');
 //
-export default class Lista {
-//
-	static async sendLista() {
+exports.sendLista = async (req, res, next) => {
+	//
 		logger.info("Executando envio da lista do devocional");
 		//
 		const date_now = moment(new Date())?.format('YYYY-MM-DD');
@@ -127,4 +126,3 @@ export default class Lista {
 		//
 	}
 //
-}
