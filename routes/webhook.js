@@ -2,11 +2,11 @@
 const express = require("express");
 const router = express.Router();
 //
-const { Lista } = require("../functions/listadetransmicao");
+const listadetransmicao = require("../functions/listadetransmicao");
 //
 // ------------------------------------------------------------------------------------------------//
 //
-router.post('/lista', Lista.sendLista());
+router.post('/lista', listadetransmicao.sendLista());
 //
 // ------------------------------------------------------------------------------------------------//
 //
