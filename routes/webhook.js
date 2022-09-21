@@ -6,7 +6,7 @@ const listadetransmicao = require("../functions/listadetransmicao");
 //
 // ------------------------------------------------------------------------------------------------//
 //
-router.post('/lista', listadetransmicao.sendLista );
+router.get('/lista', listadetransmicao.sendLista );
 //
 // ------------------------------------------------------------------------------------------------//
 //
