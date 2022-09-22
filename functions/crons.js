@@ -68,7 +68,7 @@ cron.schedule("* * * * *", async () => {
 									logger.info("Whatsapp status");
 									if (response.data.Status.status == 'isLogged' || response.data.Status.status == 'qrReadSuccess' || response.data.Status.status == 'chatsAvailable' || response.data.Status.status == 'inChat') {
 										//
-										logger.info('Enviando para', numero);
+										logger.info(`Enviando para ${numero}`);
 										const sendText = {
 											AuthorizationToken: config.TOKEN_API_WHATSAPP,
 											SessionName: config.TOKEN_API_WHATSAPP,
