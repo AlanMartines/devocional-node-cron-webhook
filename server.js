@@ -36,6 +36,18 @@ app.get("/", async (req, res, next) => {
 	//
 });
 //
+app.get("/tst", async (req, res, next) => {
+	//
+	logger.info("Server cron started");
+	//
+	res.status(200).json({
+			"erro": false,
+			"status": 200,
+			"message": "Server cron started tst"
+	});
+	//
+});
+//
 app.listen(config.PORT, async () => {
 	logger.info(`Server cron started on port: ${config.PORT}`);
 });
