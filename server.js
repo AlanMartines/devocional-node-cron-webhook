@@ -172,11 +172,9 @@ app.get("/", async (req, res, next) => {
 			await listatransmissao.findAll({
 				attributes: ['numero', 'ativo'],
 				where: {
-					numero: '556796787854'
+					numero: '5567996787854'
 				},
 			}).then(async (rows) => {
-				//
-				logger.info("Row", rows);
 				//
 				if (rows) {
 					//
