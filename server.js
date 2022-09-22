@@ -145,7 +145,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //
 // simple route
-app.get("/sendlista", async (req, res, next) => {
+app.get("/tst", async (req, res, next) => {
+	//
+	logger.info("Teste");
+	//
+	res.status(200).json({
+		"erro": false,
+		"status": 200,
+		"message": "Teste executada com sucesso."
+});
+//
+});
+//
+app.get("/", async (req, res, next) => {
 	//
 	logger.info("Executando envio da lista do devocional");
 	//
@@ -171,9 +183,6 @@ app.get("/sendlista", async (req, res, next) => {
 			//logger.info(findOne?.dataValues);
 			await listatransmissao.findAll({
 				attributes: ['numero', 'ativo'],
-				where: {
-					numero: '5567996787854'
-				},
 			}).then(async (rows) => {
 				//
 				if (rows) {
@@ -270,6 +279,7 @@ app.get("/sendlista", async (req, res, next) => {
 			"status": 200,
 			"message": "Lista executada com sucesso."
 	});
+	//
 });
 //
 app.listen(config.PORT, async () => {
