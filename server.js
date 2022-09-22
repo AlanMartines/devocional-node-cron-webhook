@@ -200,7 +200,7 @@ app.get("/", async (req, res, next) => {
 									SessionName: config.TOKEN_API_WHATSAPP
 								};
 								//
-								await axios.post('https://api.connectzap.com.br/sistema/Status', axiosConfig, Status).then(async (response) => {
+								await axios.post('http://127.0.0.1:9009/sistema/Status', Status, axiosConfig).then(async (response) => {
 									logger.info("Devocional, whatsapp status");
 									if (response.data.Status.status == 'isLogged' || response.data.Status.status == 'qrReadSuccess' || response.data.Status.status == 'chatsAvailable' || response.data.Status.status == 'inChat') {
 										//
@@ -211,7 +211,7 @@ app.get("/", async (req, res, next) => {
 											msg: "*Devocional da Graça*\n*Data:* " + resultDate + "\n*Tema:* " + descricao
 										};
 										//
-										await axios.post('https://api.connectzap.com.br/sistema/sendText', sendText, axiosConfig).then(async (response) => {
+										await axios.post('http://127.0.0.1:9009/sistema/sendText', sendText, axiosConfig).then(async (response) => {
 											logger.info("Devocional, enviando menssagem de texto");
 											if (response.data.Status.status == 200) {
 												//
@@ -224,7 +224,7 @@ app.get("/", async (req, res, next) => {
 													originalname: filename
 												};
 												//
-												await axios.post('https://api.connectzap.com.br/sistema/sendVoiceFromBase64', sendVoiceBase64, axiosConfig).then(async (response) => {
+												await axios.post('http://127.0.0.1:9009/sistema/sendVoiceFromBase64', sendVoiceBase64, axiosConfig).then(async (response) => {
 													logger.info("Devocional, enviando menssagem de audio");
 													if (response.data.Status.status == 200) {
 														logger.info(response.data);
