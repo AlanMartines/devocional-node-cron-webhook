@@ -145,7 +145,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //
 // simple route
-app.get("sendlista", async (req, res, next) => {
+app.get("/sendlista", async (req, res, next) => {
 	//
 	logger.info("Executando envio da lista do devocional");
 	//
