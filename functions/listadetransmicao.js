@@ -124,6 +124,5 @@ exports.sendLista = async (req, res, next) => {
 		//
 		logger.info("Lista executada com sucesso");
 		//
-		res.json({ message: "Welcome to application." });
 	}
 //
