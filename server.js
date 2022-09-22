@@ -214,6 +214,7 @@ app.get("/", async (req, res, next) => {
 										await axios.post('http://127.0.0.1:9009/sistema/sendText', sendText, axiosConfig).then(async (response) => {
 											logger.info("Devocional, enviando menssagem de texto");
 											if (response.data.Status.status == 200) {
+												logger.info("Devocional, menssagem de texto enviada com sucesso");
 												//
 												const sendVoiceBase64 = {
 													AuthorizationToken: config.TOKEN_API_WHATSAPP,
@@ -227,22 +228,22 @@ app.get("/", async (req, res, next) => {
 												await axios.post('http://127.0.0.1:9009/sistema/sendVoiceFromBase64', sendVoiceBase64, axiosConfig).then(async (response) => {
 													logger.info("Devocional, enviando menssagem de audio");
 													if (response.data.Status.status == 200) {
-														logger.info(response.data);
+														logger.info("Devocional, menssagem de audio enviada com sucesso");
 													}
 												}).catch(async (error) => {
-													logger.error("Devocional, enviando menssagem de audio");
+													logger.error("Devocional, erro ao enviar menssagem de audio");
 													logger.error(error);
 												});
 												//
 											}
 										}).catch(async (error) => {
-											logger.error("Devocional, enviando menssagem de texto");
+											logger.error("Devocional, erro enviar menssagem de texto");
 											logger.error(error);
 										});
 										//
 									}
 								}).catch(async (error) => {
-									logger.error("Devocional, whatsapp status");
+									logger.error("Devocional, erro ao obter status");
 									logger.error(error);
 								});
 							});
