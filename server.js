@@ -1,10 +1,8 @@
 
 const express = require("express");
 const cors = require("cors");
-const axios = require('axios');
 const moment = require('moment');
 const { logger } = require("./utils/logger");
-const { devocionais, listatransmissao } = require('./models');
 moment()?.format('YYYY-MM-DD HH:mm:ss');
 moment?.locale('pt-br');
 const config = require('./config.global');
