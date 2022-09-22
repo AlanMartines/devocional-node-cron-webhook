@@ -187,10 +187,6 @@ app.get("/", async (req, res, next) => {
 							await queue.add(async () => {
 								//
 								const axiosConfig = {
-									headers: {
-										'Content-Type': 'application/json; charset=UTF-8',
-										"Access-Control-Allow-Origin": "*",
-									},
 									maxContentLength: Infinity,
 									maxBodyLength: Infinity
 								};
