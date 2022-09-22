@@ -187,6 +187,7 @@ app.get("/", async (req, res, next) => {
 							await queue.add(async () => {
 								//
 								const axiosConfig = {
+									responseType: 'json',
 									maxContentLength: Infinity,
 									maxBodyLength: Infinity
 								};
