@@ -9,6 +9,7 @@ moment()?.format('YYYY-MM-DD HH:mm:ss');
 moment?.locale('pt-br');
 const config = require('./config.global');
 require('dotenv').config();
+require('./functions/crons');
 //
 const app = express();
 //
