@@ -2,11 +2,20 @@
 const express = require("express");
 const router = express.Router();
 //
-const listadetransmicao = require("../functions/listadetransmicao");
-//
 // ------------------------------------------------------------------------------------------------//
 //
-router.get('/lista', listadetransmicao.sendLista );
+router.get("/tst", async (req, res, next) => {
+	//
+	logger.info("Router tst");
+	//
+	res.status(200).json({
+			"erro": false,
+			"status": 200,
+			"message": "Server cron started tst"
+	});
+	//
+});
+//
 //
 // ------------------------------------------------------------------------------------------------//
 //

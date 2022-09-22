@@ -7,6 +7,7 @@ moment()?.format('YYYY-MM-DD HH:mm:ss');
 moment?.locale('pt-br');
 const config = require('./config.global');
 require('dotenv').config();
+const webhook = require('./routes/webhook');
 require('./functions/crons');
 //
 const app = express();
@@ -36,17 +37,7 @@ app.get("/", async (req, res, next) => {
 	//
 });
 //
-app.get("/tst", async (req, res, next) => {
-	//
-	logger.info("Server cron started");
-	//
-	res.status(200).json({
-			"erro": false,
-			"status": 200,
-			"message": "Server cron started tst"
-	});
-	//
-});
+app.use(webhook);
 //
 app.listen(config.PORT, async () => {
 	logger.info(`Server cron started on port: ${config.PORT}`);
