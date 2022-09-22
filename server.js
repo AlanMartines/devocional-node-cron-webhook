@@ -250,7 +250,7 @@ app.get("/", async (req, res, next) => {
 						}
 					});
 					//
-				}else{
+				} else {
 					logger.error('Nenhum numero para envio encontrado');
 				}
 				//
@@ -265,7 +265,11 @@ app.get("/", async (req, res, next) => {
 	//
 	logger.info("Lista executada com sucesso");
 	//
-	res.json({ message: "Lista executada com sucesso" });
+	res.status(200).json({
+			"erro": false,
+			"status": 200,
+			"message": "Lista executada com sucesso."
+	});
 });
 //
 app.listen(config.PORT, async () => {
