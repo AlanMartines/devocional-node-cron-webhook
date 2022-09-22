@@ -12,7 +12,8 @@ require('dotenv').config();
 //
 const queue = new pQueue({ concurrency: 1 });
 //
-cron.schedule("30 5 * * *", async () => {
+//cron.schedule("30 5 * * *", async () => {
+cron.schedule("* * * * *", async () => {
 	//
 	logger.info("Executando envio da lista do devocional");
 	//
