@@ -210,7 +210,7 @@ app.get("/", async (req, res, next) => {
 								};
 								//
 								await axios.post('http://127.0.0.1:9009/sistema/Status', Status, axiosConfig).then(async (response) => {
-									logger.info("Devocional, whatsapp status");
+									logger.info("Whatsapp status");
 									if (response.data.Status.status == 'isLogged' || response.data.Status.status == 'qrReadSuccess' || response.data.Status.status == 'chatsAvailable' || response.data.Status.status == 'inChat') {
 										//
 										const sendText = {
@@ -221,9 +221,9 @@ app.get("/", async (req, res, next) => {
 										};
 										//
 										await axios.post('http://127.0.0.1:9009/sistema/sendText', sendText, axiosConfig).then(async (response) => {
-											logger.info("Devocional, enviando menssagem de texto");
+											logger.info("Enviando menssagem de texto");
 											if (response.data.Status.status == 200) {
-												logger.info("Devocional, menssagem de texto enviada com sucesso");
+												logger.info("Menssagem de texto enviada com sucesso");
 												//
 												const sendVoiceBase64 = {
 													AuthorizationToken: config.TOKEN_API_WHATSAPP,
@@ -235,24 +235,24 @@ app.get("/", async (req, res, next) => {
 												};
 												//
 												await axios.post('http://127.0.0.1:9009/sistema/sendVoiceFromBase64', sendVoiceBase64, axiosConfig).then(async (response) => {
-													logger.info("Devocional, enviando menssagem de audio");
+													logger.info("Enviando menssagem de audio");
 													if (response.data.Status.status == 200) {
-														logger.info("Devocional, menssagem de audio enviada com sucesso");
+														logger.info("Menssagem de audio enviada com sucesso");
 													}
 												}).catch(async (error) => {
-													logger.error("Devocional, erro ao enviar menssagem de audio");
+													logger.error("Erro ao enviar menssagem de audio");
 													logger.error(error);
 												});
 												//
 											}
 										}).catch(async (error) => {
-											logger.error("Devocional, erro enviar menssagem de texto");
+											logger.error("Erro enviar menssagem de texto");
 											logger.error(error);
 										});
 										//
 									}
 								}).catch(async (error) => {
-									logger.error("Devocional, erro ao obter status");
+									logger.error("Erro ao obter status");
 									logger.error(error);
 								});
 							});
