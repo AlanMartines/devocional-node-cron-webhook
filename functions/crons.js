@@ -11,9 +11,21 @@ const config = require('../config.global');
 require('dotenv').config();
 //
 const queue = new pQueue({ concurrency: 1 });
-//
-//cron.schedule("30 5 * * *", async () => {
-cron.schedule("* * * * *", async () => {
+/*
+* Para facilitar, vou dar uma visão bem rápida de como fuciona:
+
+* * * * * *
+| | | | | |
+| | | | | day of week
+| | | | month
+| | | day of month
+| | hour
+| minute
+second ( optional )
+
+*/
+cron.schedule("0 30 5 * * *", async () => {
+//cron.schedule("* * * * * *", async () => {
 	//
 	logger.info("Executando envio da lista do devocional");
 	//
@@ -44,8 +56,8 @@ cron.schedule("* * * * *", async () => {
 					//
 					//logger.info(rows);
 					rows.forEach(async (result) => {
-						var numero = result.numero;
-						var ativo = result.ativo;
+						const numero = result.numero;
+						const ativo = result.ativo;
 						//
 						if (ativo) {
 							await queue.add(async () => {
