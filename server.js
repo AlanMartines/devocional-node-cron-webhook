@@ -176,6 +176,8 @@ app.get("/", async (req, res, next) => {
 				},
 			}).then(async (rows) => {
 				//
+				logger.info("Row", rows);
+				//
 				if (rows) {
 					//
 					//logger.info(rows);
