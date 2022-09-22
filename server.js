@@ -146,10 +146,6 @@ app.use(express.urlencoded({ extended: true }));
 //
 // simple route
 app.get("/", async (req, res, next) => {
-	res.json({ message: "Welcome to application." });
-});
-//
-app.get("/send", async (req, res, next) => {
 	//
 	logger.info("Executando envio da lista do devocional");
 	//
