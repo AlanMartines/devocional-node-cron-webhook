@@ -251,6 +251,8 @@ app.get("/", async (req, res, next) => {
 						}
 					});
 					//
+				}else{
+					logger.error('Nenhum numero para envio encontrado');
 				}
 				//
 			}).catch(async (err) => {
