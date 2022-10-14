@@ -5,14 +5,14 @@ const router = express.Router();
 //
 // ------------------------------------------------------------------------------------------------//
 //
-router.get("/listatransmicao", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
 	//
-	logger.info("Executando lista de transmição");
+	logger.info("Router");
 	//
 	res.status(200).json({
 			"erro": false,
 			"status": 200,
-			"message": "Lista executada com sucesso."
+			"message": "Router"
 	});
 	//
 });
