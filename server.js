@@ -8,6 +8,7 @@ moment?.locale('pt-br');
 const config = require('./config.global');
 require('dotenv').config();
 const webhook = require('./routes/webhook');
+const routers = require('./routes/routers');
 require('./functions/crons');
 //
 const app = express();
@@ -37,7 +38,8 @@ app.get("/", async (req, res, next) => {
 	//
 });
 //
-app.use(webhook);
+app.use('webhook', webhook);
+app.use('routers', routers);
 //
 app.listen(config.PORT, async () => {
 	logger.info(`Server cron started on port: ${config.PORT}`);
@@ -48,7 +50,7 @@ process.stdin.resume(); //so the program will not close instantly
 async function exitHandler(options, exitCode) {
 	//
 	if (options.cleanup) {
-		console.log("- Cleanup");
+		logger.info("Cleanup");
 	}
 	//
 	if (exitCode || exitCode === 0) {

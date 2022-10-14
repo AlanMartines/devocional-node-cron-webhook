@@ -142,10 +142,4 @@ cron.schedule("0 30 5 * * *", async () => {
 	//
 	logger.info("Lista executada com sucesso");
 	//
-	res.status(200).json({
-			"erro": false,
-			"status": 200,
-			"message": "Lista executada com sucesso."
-	});
-	//
 });
