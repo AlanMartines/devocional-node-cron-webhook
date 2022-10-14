@@ -38,8 +38,8 @@ app.get("/", async (req, res, next) => {
 	//
 });
 //
-app.use('webhook', webhook);
-app.use('routers', routers);
+app.use('/webhook', webhook);
+app.use('/routers', routers);
 //
 app.listen(config.PORT, async () => {
 	logger.info(`Server cron started on port: ${config.PORT}`);
