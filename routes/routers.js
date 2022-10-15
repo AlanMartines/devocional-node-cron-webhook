@@ -89,7 +89,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 									await axios.post('http://127.0.0.1:9009/sistema/Status', Status, axiosConfig).then(async (response) => {
 										logger.info("Whatsapp status");
 										if (response.data.Status.status == 'isLogged' || response.data.Status.status == 'qrReadSuccess' || response.data.Status.status == 'chatsAvailable' || response.data.Status.status == 'inChat') {
-											logger.info("Status", response?.data?.Status?.status);
+											logger.info(`Status ${response?.data?.Status?.status}`);
 											//
 											logger.info(`Enviando para ${numero}`);
 											const sendText = {
@@ -130,7 +130,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 											});
 											//
 										}else{
-											logger.error("Status", response?.data?.Status?.status);
+											logger.error(`Status ${response?.data?.Status?.status}`);
 										}
 									}).catch(async (error) => {
 										logger.error("Erro ao obter status");
