@@ -130,7 +130,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 											});
 											//
 										}else{
-											logger.error(`Status ${response?.data?.Status?.status}`);
+											logger.info(`Status ${response?.data?.Status?.status}`);
 										}
 									}).catch(async (error) => {
 										logger.error("Erro ao obter status");
