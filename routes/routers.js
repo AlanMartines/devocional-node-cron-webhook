@@ -88,7 +88,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 									//
 									await axios.post('http://127.0.0.1:9009/sistema/Status', Status, axiosConfig).then(async (response) => {
 										logger.info("Whatsapp status");
-										if (response.data.Status.status == 'isLogged' || response.data.Status.status == 'qrReadSuccess' || response.data.Status.status == 'chatsAvailable' || response.data.Status.status == 'inChat') {
+										if (response?.data?.Status?.status == 'isLogged' || response?.data?.Status?.status == 'qrReadSuccess' || response?.data?.Status?.status == 'chatsAvailable' || response?.data?.Status?.status == 'inChat') {
 											logger.info(`Status ${response?.data?.Status?.status}`);
 											//
 											logger.info(`Enviando para ${numero}`);
@@ -101,7 +101,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 											//
 											await axios.post('http://127.0.0.1:9009/sistema/sendText', sendText, axiosConfig).then(async (response) => {
 												logger.info("Enviando menssagem de texto");
-												if (response.data.Status.status == 200) {
+												if (response?.data?.Status?.status == 200) {
 													logger.info("Menssagem de texto enviada com sucesso");
 													//
 													const sendVoiceBase64 = {
@@ -115,7 +115,7 @@ router.get("/listadetransmicao", async (req, res, next) => {
 													//
 													await axios.post('http://127.0.0.1:9009/sistema/sendVoiceFromBase64', sendVoiceBase64, axiosConfig).then(async (response) => {
 														logger.info("Enviando menssagem de audio");
-														if (response.data.Status.status == 200) {
+														if (response?.data?.Status?.status == 200) {
 															logger.info("Menssagem de audio enviada com sucesso");
 														}
 													}).catch(async (error) => {
