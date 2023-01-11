@@ -24,7 +24,7 @@ const queue = new pQueue({ concurrency: 1 });
 second ( optional )
 
 */
-cron.schedule("0 30 5 * * *", async () => {
+cron.schedule("0 5 5 * * *", async () => {
 //cron.schedule("* * * * * *", async () => {
 	//
 	logger.info("Executando envio da lista do devocional");
