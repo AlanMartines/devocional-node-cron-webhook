@@ -118,7 +118,9 @@ cron.schedule("0 30 5 * * *", async () => {
 											logger.error(error);
 										});
 										//
-									}
+										}else{
+											logger.error(`Status ${response?.data?.Status?.status}`);
+										}
 								}).catch(async (error) => {
 									logger.error("Erro ao obter status");
 									logger.error(error);
